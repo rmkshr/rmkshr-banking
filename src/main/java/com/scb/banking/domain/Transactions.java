@@ -1,6 +1,8 @@
 package com.scb.banking.domain;
 
 import javax.persistence.*;
+
+import com.scb.banking.repository.listeners.TransactionsListener;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,6 +14,7 @@ import java.sql.Timestamp;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@EntityListeners(TransactionsListener.class)
 @Table(name = "transactions")
 public class Transactions implements Serializable {
 
@@ -46,16 +49,5 @@ public class Transactions implements Serializable {
 
     @Column(name = "available_balance", nullable = false)
     private long availableBalance;
-
-    @ManyToOne
-    private Accounts accounts;
-
-    @PreUpdate
-    public void updateAccountBalance() {
-        if (accounts != null) {
-            accounts.setAvailableBalance(availableBalance);
-            accounts.setCurrentBalance(currentBalance);
-        }
-    }
 
 }

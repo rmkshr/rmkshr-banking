@@ -2,13 +2,11 @@ package com.scb.banking.domain;
 
 import javax.persistence.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.util.List;
 
 @Entity
 @Data
@@ -29,9 +27,5 @@ public class Accounts implements Serializable {
 
     @Column(name = "current_balance", nullable = false)
     private long currentBalance;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    @JsonIgnore
-    private List<Transactions> transactions;
 
 }
