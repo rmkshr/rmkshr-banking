@@ -6,6 +6,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
 
 @Entity
 @Data
@@ -26,4 +27,7 @@ public class Accounts implements Serializable {
 
     @Column(name = "current_balance", nullable = false)
     private long currentBalance;
+
+    @OneToMany
+    private List<Transactions> transactionsList;
 }

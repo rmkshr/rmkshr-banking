@@ -47,4 +47,15 @@ public class Transactions implements Serializable {
     @Column(name = "available_balance", nullable = false)
     private long availableBalance;
 
+    @ManyToOne
+    @JoinColumn(name = "accounts_account_number")
+    private Accounts accounts;
+
+    @PreUpdate
+    public void updateAccountsBalance() {
+        if (accounts != null) {
+            accounts.setAvailableBalance(availableBalance);
+            accounts.setCurrentBalance(currentBalance);
+        }
+    }
 }
