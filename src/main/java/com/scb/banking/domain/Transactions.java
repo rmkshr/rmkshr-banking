@@ -8,7 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 @Data
@@ -27,7 +27,8 @@ public class Transactions implements Serializable {
     private Integer accountNumber;
 
     @Column(name = "transaction_date", nullable = false)
-    private Timestamp transactionDate;
+    @Temporal(TemporalType.DATE)
+    private Date transactionDate;
 
     @Column(name = "transaction_details", nullable = false)
     private String transactionDetails;
