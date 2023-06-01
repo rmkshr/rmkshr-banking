@@ -11,9 +11,6 @@ import org.springframework.web.bind.annotation.*;
 public class AccountsController {
 
     @Autowired
-    private AccountsRepository accountsRepository;
-
-    @Autowired
     private AccountService accountService;
 
     @GetMapping("/all")
