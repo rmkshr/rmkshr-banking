@@ -1,5 +1,9 @@
 package com.scb.banking.enums;
 
+/**
+ * @author ramkishore
+ * The enum containing account types and respective codes
+ */
 public enum AccountTypeEnum {
 
     SAVINGS(1, "SAVINGS"),

@@ -6,6 +6,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author ramkishore
+ * The transactions JPA repository
+ */
 @Repository
 public interface TransactionsRepository extends JpaRepository<Transactions, Integer> {
 

@@ -1,16 +1,16 @@
 package com.scb.banking.response;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import java.util.Date;
 import java.util.List;
 
+/**
+ * @author ramkishore
+ * The transaction response pojo class.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

@@ -10,6 +10,10 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 import java.util.Date;
 
+/**
+ * @author ramkishore
+ * The Transactions entity model
+ */
 @Entity
 @Data
 @AllArgsConstructor

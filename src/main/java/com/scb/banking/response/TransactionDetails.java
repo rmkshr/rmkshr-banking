@@ -10,6 +10,10 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.util.Date;
 
+/**
+ * @author ramkishore
+ * The transaction detials pojo class.
+ */
 @Data
 @AllArgsConstructor
 @NoArgsConstructor

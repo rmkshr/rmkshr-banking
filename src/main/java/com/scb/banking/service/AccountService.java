@@ -4,6 +4,9 @@ import com.scb.banking.domain.Accounts;
 
 import java.util.List;
 
+/**
+ * @author ramkishore
+ */
 public interface AccountService {
 
     Integer createUserAccount(Integer accountTypeKey) throws Exception;

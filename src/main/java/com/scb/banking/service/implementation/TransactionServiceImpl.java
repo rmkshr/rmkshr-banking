@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * @author ramkishore
+ * The service implementation layer for transactions business logic
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 public class TransactionServiceImpl implements TransactionService {
@@ -31,7 +35,7 @@ public class TransactionServiceImpl implements TransactionService {
         try {
             Transactions transactions = new Transactions();
             List<Integer> accountNumbers = accountsRepository.findAllPrimaryKeys();
-            if(!accountNumbers.contains(request.getAccountNumber())){
+            if (!accountNumbers.contains(request.getAccountNumber())) {
                 throw new Exception("Invalid Account number / Account does not exist");
             }
             Long availableBalance = accountsRepository.findAvailableBalanceByAccountNumber(request.getAccountNumber());
@@ -39,10 +43,10 @@ public class TransactionServiceImpl implements TransactionService {
             transactions.setTransactionDate(new Date());
             transactions.setTransactionDetails(request.getTransactionDetails());
             transactions.setCurrencyType(request.getCurrencyType());
-            if(request.getCreditAmount() == 0){
+            if (request.getCreditAmount() == 0) {
                 transactions.setRunningBalance(availableBalance - request.getDebitAmount());
                 transactions.setDebitAmount(request.getDebitAmount());
-            } else if (request.getDebitAmount() == 0){
+            } else if (request.getDebitAmount() == 0) {
                 transactions.setRunningBalance(availableBalance + request.getCreditAmount());
                 transactions.setCreditAmount(request.getCreditAmount());
             } else {
@@ -63,8 +67,8 @@ public class TransactionServiceImpl implements TransactionService {
         List<TransactionDetails> transactionDetailsList = copyList(transactionsRepository.findByAccountNumberOrderById(accountNumber), TransactionDetails.class);
         transactionResponse.setTransactionDetailsList(transactionDetailsList);
         int transactionCount = transactionDetailsList.size();
-        transactionResponse.setAvailableBalance(transactionDetailsList.get(transactionCount-1).getRunningBalance());
-        transactionResponse.setCurrentBalance(transactionDetailsList.get(transactionCount-1).getRunningBalance());
+        transactionResponse.setAvailableBalance(transactionDetailsList.get(transactionCount - 1).getRunningBalance());
+        transactionResponse.setCurrentBalance(transactionDetailsList.get(transactionCount - 1).getRunningBalance());
         return transactionResponse;
     }
 

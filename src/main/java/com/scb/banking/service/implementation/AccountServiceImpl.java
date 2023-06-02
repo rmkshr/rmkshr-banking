@@ -12,6 +12,10 @@ import org.springframework.util.ObjectUtils;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * @author ramkishore
+ * The service implementation layer for accounts business logic
+ */
 @AllArgsConstructor
 @NoArgsConstructor
 public class AccountServiceImpl implements AccountService {
@@ -23,7 +27,7 @@ public class AccountServiceImpl implements AccountService {
     private AccountsRepository accountsRepository;
 
     @Override
-    public Integer createUserAccount(Integer accountTypeKey) throws Exception{
+    public Integer createUserAccount(Integer accountTypeKey) throws Exception {
         try {
             Accounts accounts = new Accounts();
             accounts.setAccountNumber(generateAccountNumber());
@@ -31,8 +35,8 @@ public class AccountServiceImpl implements AccountService {
             accounts.setAvailableBalance(0);
             accounts.setCurrentBalance(0);
             Accounts savedAccountDetails = accountsRepository.save(accounts);
-            if(ObjectUtils.isEmpty(savedAccountDetails)){
-               throw new Exception("Error in creating account");
+            if (ObjectUtils.isEmpty(savedAccountDetails)) {
+                throw new Exception("Error in creating account");
             }
             return savedAccountDetails.getAccountNumber();
         } catch (Exception exception) {

@@ -7,6 +7,10 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author ramkishore
+ * The accounts JPA repository
+ */
 @Repository
 public interface AccountsRepository extends JpaRepository<Accounts, Integer> {
     List<Accounts> findAll();

@@ -8,6 +8,10 @@ import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
 
+/**
+ * @author ramkishore
+ * The Accounts entity model.
+ */
 @Entity
 @Data
 @AllArgsConstructor

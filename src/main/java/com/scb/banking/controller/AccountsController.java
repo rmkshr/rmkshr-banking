@@ -1,11 +1,14 @@
 package com.scb.banking.controller;
 
-import com.scb.banking.repository.AccountsRepository;
 import com.scb.banking.service.AccountService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * @author ramkishore
+ * The controller with enpoints related to account actions.
+ */
 @RestController
 @RequestMapping("scb/accounts")
 public class AccountsController {
