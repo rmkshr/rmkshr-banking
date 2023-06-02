@@ -30,6 +30,12 @@ public class TransactionServiceImpl implements TransactionService {
     @Autowired
     private AccountsRepository accountsRepository;
 
+    /**
+     * Function used to add new transaction for a customer account.
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @Override
     public Long addNewTransaction(NewTransactionRequest request) throws Exception {
         try {
@@ -61,6 +67,11 @@ public class TransactionServiceImpl implements TransactionService {
         }
     }
 
+    /**
+     * Function used to get all transactions for a given account number.
+     * @param accountNumber
+     * @return
+     */
     @Override
     public TransactionResponse getAllTransactions(Integer accountNumber) {
         TransactionResponse transactionResponse = new TransactionResponse();
@@ -72,6 +83,13 @@ public class TransactionServiceImpl implements TransactionService {
         return transactionResponse;
     }
 
+    /**
+     * Function to copy objects.
+     * @param sourceList
+     * @param targetClass
+     * @return
+     * @param <T>
+     */
     public <T> List<T> copyList(List<?> sourceList, Class<T> targetClass) {
         List<T> targetList = new ArrayList<>();
         for (Object sourceObject : sourceList) {

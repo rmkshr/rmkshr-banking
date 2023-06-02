@@ -26,6 +26,12 @@ public class AccountServiceImpl implements AccountService {
     @Autowired
     private AccountsRepository accountsRepository;
 
+    /**
+     * Function used to create new user account.
+     * @param accountTypeKey
+     * @return
+     * @throws Exception
+     */
     @Override
     public Integer createUserAccount(Integer accountTypeKey) throws Exception {
         try {
@@ -44,11 +50,18 @@ public class AccountServiceImpl implements AccountService {
         }
     }
 
+    /**
+     * Function used to fetch all user accounts
+     * @return
+     */
     @Override
     public List<Accounts> getAllUsers() {
         return accountsRepository.findAll();
     }
 
+    /**
+     * Function used to generate random integer to use as account number.
+     */
     public Integer generateAccountNumber() {
         Random random = new Random();
         return random.nextInt((MAX_RANGE - MIN_RANGE) + 1) + MIN_RANGE;
